@@ -31,7 +31,7 @@ const Header = () => {
         </Link>
 
         <button
-          className="m-.001em,border-redius,navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
@@ -62,6 +62,7 @@ const Header = () => {
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                onClick={(e) => e.preventDefault()} // Prevent unwanted scroll
               >
                 Categories
               </Link>
@@ -103,6 +104,7 @@ const Header = () => {
                   role="button"
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
+                  onClick={(e) => e.preventDefault()}
                 >
                   {auth?.user?.name}
                 </NavLink>
@@ -131,7 +133,7 @@ const Header = () => {
             )}
 
             <li className="nav-item">
-              <NavLink to="/cart" className="nav-link">
+              <NavLink to="/cart" className="nav-link" aria-label="cart">
                 <Badge count={cart?.length} showZero offset={[5, -5]}>
                   Cart
                 </Badge>
